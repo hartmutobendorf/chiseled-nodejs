@@ -31,6 +31,7 @@ parts:
           - openssl_data
           - libgcc-s1_libs
           - libc6_libs
+          - libstdc++6_libs
         override-build: |
             craftctl default
             VERSION=v22.14.0
@@ -50,6 +51,4 @@ parts:
             xz -cd node-$VERSION-linux-x64.tar.xz | 
               tar --strip-components 1 -C $CRAFT_PART_INSTALL/usr -xvf -
         stage:
-          - usr/bin/*
-          - usr/lib/*
-          - usr/LICENSE
+          - -usr/include/*
